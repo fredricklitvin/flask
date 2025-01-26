@@ -17,7 +17,7 @@ pipeline {
         steps {
             script {
                 sh ' echo " test " '
-                sh ' curl http:127.0.0.1:5000 '
+                sh ' curl curl http://127.0.0.1:5000 '
             }
         }
     }
@@ -25,7 +25,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    sh 'echo "test" '
+                    sh 'echo "deploy" '
                 }
             }
         }
