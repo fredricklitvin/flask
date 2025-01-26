@@ -4,26 +4,27 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    sh ' sudo python hello.py'
-                  
+                    sh ' echo " starting to build'
+                    sh ' sudo docker build -t simple-flask-app:latest .'
+                    sh '  docker run -d -p 5000:5000 simple-flask-app ' 
+                    sh ' curl http:127.0.0.1:5000 '
                 }
             }
         }
 
-    stage('deploy') {
+    stage('test') {
         steps {
             script {
-                echo 'creating index.html'
-                sh 'sudo cp /home/ec2-user/workspace/web-starter/index.html /var/www/html/index.html'
+                sh ' echo " test " 
+                sh ' curl http:127.0.0.1:5000 '
             }
         }
     }
 
-        stage('check') {
+        stage('deploy') {
             steps {
                 script {
-                    echo 'checking if it works'
-                    sh 'sudo curl curl http://44.202.214.37:80'
+                    sh 'echo "test" '
                 }
             }
         }
