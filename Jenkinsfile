@@ -41,7 +41,5 @@ pipeline {
             sh ' echo " removing docker " '
            sh ' docker rm -f web '
         }
-    }
-}
-    }
+    }  
 }
