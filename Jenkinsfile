@@ -35,6 +35,7 @@ pipeline {
                 }
             }
         }
+    }
 
         post { 
         always { 
@@ -42,5 +43,4 @@ pipeline {
            sh ' docker rm -f web '
         }
     }  
-}
 }
